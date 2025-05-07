@@ -22,9 +22,3 @@ function startServer() {
     console.log(`Server is connected to port ${port}`);
   });
 }   
-
-export const handler = ServerlessHttp(app, {
-  request: (request, event) => {
-    request.requestContext = event.requestContext;
-  },
-});
