@@ -1,5 +1,6 @@
 import app from "./src/app.js";
 import connectToDb from "./src/config/database.js";
+import ServerlessHttp from "serverless-http";
 
 const port = process.env.PORT || 4500;
 
@@ -21,3 +22,9 @@ function startServer() {
     console.log(`Server is connected to port ${port}`);
   });
 }   
+
+export const handler = ServerlessHttp(app, {
+  request: (request, event) => {
+    request.requestContext = event.requestContext;
+  },
+});

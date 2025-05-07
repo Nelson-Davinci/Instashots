@@ -15,6 +15,7 @@ const corsOptions = {
   methods: ["GET", "POST", "PATCH", "DELETE"],
   credentials: true,
 };
+
 app.use(cors(corsOptions)); //allows external origin points to communicate with server
 app.use(morgan("dev")); //log https requests to terminal
 app.use(json({ limit: "25mb" })); //parses requests to client side in json body format
@@ -25,6 +26,7 @@ app.disable("x-powered-by"); //disable tech stack
 app.get("/", (req, res) => {
   res.send("Hello Instashots server");
 });
+
 
 //api
 app.use("/api/auth", userRoutes);
@@ -47,5 +49,7 @@ app.use((error, req, res, next) => {
   }
   res.status(statusCode).json({ error: error.message });
 });
+
+
 
 export default app;
