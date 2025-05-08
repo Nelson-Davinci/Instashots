@@ -1,11 +1,11 @@
 import app from "./src/app.js";
 import connectToDb from "./src/config/database.js";
-import ServerlessHttp from "serverless-http";
+// import ServerlessHttp from "serverless-http";
 
 const port = process.env.PORT || 4500;
 
 if (!port) {
-  throw new Error("Please there is a port number provided");
+  throw new Error("Please is there a port number provided");
 }
 
 //initialize server
